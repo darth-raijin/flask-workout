@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content%}
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        {% if discover%}
+        DISCOVER ROOMS
+        {% else %}
+        ROOMS
+        {% endif %}
+      </p>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="section">
+  <h1 class="title">Create a room</h1>
+  <h2 class="subtitle">
+    Create your own community!
+  </h2>
+  <a href="create">
+    <button class="button">Create community</button>
+  </a>
+
+</section>
+
+<section class="section">
+  {% if discover%}
+  <h1 class="title">Public rooms</h1>
+  <h2 class="subtitle">
+    Click a room to connect!
+  </h2>
+  {% else %}
+  <h1 class="title">My rooms</h1>
+  <h2 class="subtitle">
+    Click a room to connect!
+  </h2>
+  {% endif %}
+
+
+  {% if not rooms %}
+  <h2 class="subtitle">
+    No rooms available!
+  </h2>
+  {% endif %}
+
+  {% for item in rooms %}
+  <div class="card">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+            <p class="title is-4" id="title">{{item.get("name")}}</p>
+            <p class="subtitle is-5" id ="subtitle">{{item.get("description")}} </p>
+            <p class="subtitle is-6" id ="subtitle">Room is 
+              {% if item.get("public") == "on"%}
+              public
+              {% else %}
+              private
+              {% endif %}
+            </p>
+        </div>
+        <div class="media-right">
+          <a href={{url_for("rooms.connect", id=item.get("id"))}}>
+          <button class="button">Connect</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor%}
+
+  
+
+
+</section>
+{% endblock%}
