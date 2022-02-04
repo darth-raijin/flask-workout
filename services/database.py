@@ -37,4 +37,7 @@ class Database:
         except:
             return False
 
+    def create_workout(user_id: str, current_date: str):
+        ""
+
 

@@ -1,0 +1,21 @@
+{
+    "date": "dd/mm/yyyy",
+    "weight": 65,
+    "exercises": [
+        {
+            "name": "Deadlift",
+            "category": "Strength",
+            "sets": [{
+                "repetions": 12,
+                "weight": 100
+            }]
+        },
+        {
+            "name": "Treadmill",
+            "category": "Cardio",
+            "Distance": 10.5, 
+            "time": "hh:mm:ss"
+        }
+    ]
+
+}

@@ -6,7 +6,13 @@ Workout Section:
             Add exercise:
                 Name of exercise (Drop down with previous exercises, otherwise add new name and it gets saved)
                 Category: Strength or Cardio
-                Total weight lifted during exercise (Calculation based on REP x SETS for exercises)
+        BE  -   Total weight lifted during exercise (Calculation based on REP x SETS for exercises) 
+                Add n-amount of sets - max 10 or smth:
+                Button is clicked and another set is added - (JavaScript restriction to only allow new sets if data isnt empty)
+                    Each set consists of amount of reputations
+                Cardio: 
+                    Distance, a.b km
+
     Log of previous workouts:
         Update and view buttons for each workout.
 
@@ -25,4 +31,3 @@ Possible additions for future iterations:
     Google Adsense integration
     Paid plan, restriction of the fun data, i.e. total weight lifted etc - also reduces load on server. 
     Diet Plan 
-    
