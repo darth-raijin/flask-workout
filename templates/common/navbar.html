@@ -1,7 +1,7 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <h1>CHATTR</h1>
+      <h1>FERRUM</h1>
     </a>
 
     <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
@@ -15,10 +15,10 @@
     <div class="navbar-end">
       <div class="navbar-item">
         {% if current_user.is_authenticated %}
-          <a class=" navbar-item" href={{url_for("rooms.root")}}>
+          <a class=" navbar-item" >
             ROOMS
           </a>
-          <a class=" navbar-item" href={{url_for("rooms.discover")}}>
+          <a class=" navbar-item">
             DISCOVER
           </a>
           {% endif %}

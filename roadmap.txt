@@ -1,0 +1,28 @@
+Workout Section:
+    Button somewhere at top to add new exercise
+        Add new workout:
+            Date of workout
+            Weight checkin - Nullable value
+            Add exercise:
+                Name of exercise (Drop down with previous exercises, otherwise add new name and it gets saved)
+                Category: Strength or Cardio
+                Total weight lifted during exercise (Calculation based on REP x SETS for exercises)
+    Log of previous workouts:
+        Update and view buttons for each workout.
+
+Profile Section:
+    Total weight lifted throughout all exercises
+    Chart displaying progression of average weight lifted across all exercises
+        Useable as metric for strength progression over time 
+        Monthly intervals
+
+    Bulma section with 3 favorite exercises (Oftest occuring exercises)
+    Bulma Section
+
+
+Possible additions for future iterations:
+    Heroku deployment 
+    Google Adsense integration
+    Paid plan, restriction of the fun data, i.e. total weight lifted etc - also reduces load on server. 
+    Diet Plan 
+    
