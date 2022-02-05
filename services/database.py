@@ -22,7 +22,10 @@ class Database:
         # TODO Change to result.get
 
         result_dict = {
-            }
+                "id": result_dict.get("_id"),
+                "email": result_dict.get("email"),
+                "password": result_dict.get("password")
+                }
         print(result_dict)
         if not result_dict:
             return None
@@ -38,6 +41,36 @@ class Database:
             return False
 
     def create_workout(user_id: str, current_date: str):
-        ""
+        """Used to add a workout and connect it to the creating user
 
+        Args:
+            user_id (str): Username for the current user
+            current_date (str): Current date in dd/mm/yyyy format
 
+        Returns:
+            str: id for the created workout
+        """
+        try:
+            result = mongo.db.workouts.insert_one(
+                {"user": user_id, "current_date": current_date,
+                "weight": 0, "exercises": []})
+            return str(result.inserted_id)
+        except:
+            return False
+
+    def get_workout_by_id(id: str):
+        fetched_workout = mongo.db.users.find({"_id": id})
+        result_dict = {}
+
+        # TODO Change to result.get
+
+        result_dict = {
+                "id": result_dict.get("_id"),
+                "email": result_dict.get("email"),
+                "password": result_dict.get("password")
+                }
+        print(result_dict)
+        if not result_dict:
+            return None
+
+        return result_dict

@@ -44,6 +44,7 @@ def register():
 
             return redirect(url_for("index"))
         else:
+            # TODO Flash message also
             return ('Failed to create', 409)
     else:  # Handling GET
         return render_template("auth/register.html")
