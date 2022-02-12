@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash, current_app
 from flask_login import login_user, logout_user, login_required, current_user, LoginManager
 from werkzeug.security import generate_password_hash, check_password_hash
-from models import user
 import re
 from services.database import Database
 from models.user import User
@@ -38,10 +37,12 @@ def register():
         elif not re.match(r"^(?=[a-zA-Z0-9._]{3,20}$)(?!.*[_.]{2})[^_.].*[^_.]$", userDic["username"]):
             return ('Invalid username', 400)
 
-        if database.create_user(userDic["username"], userDic["email"], generate_password_hash(userDic["password"])):
+        creation_result = database.create_user(userDic["username"], userDic["email"], generate_password_hash(userDic["password"]))
+        print(f"CREATION RESULT: {creation_result}")
+        if creation_result:
             print("Creating user")
-            login_user(User(id=userDic["username"], email=userDic["email"]))
-
+            newUser = User(id=userDic["username"], email=userDic["email"])
+            login = login_user(newUser)
             return redirect(url_for("index"))
         else:
             # TODO Flash message also

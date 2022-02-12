@@ -46,8 +46,8 @@ app.register_blueprint(auth)
 def load_user(user_id):
         try:
                 result = database.get_user_by_id(user_id)
-                user = User(id = result["id"], email = result["email"],
-                joined_rooms = result["joined_rooms"], friends = result["friends"])
+                print(f"Fetch result: {result}")
+                user = User(id = result["id"], email = result["email"])
                 return user
         except:
                 return None

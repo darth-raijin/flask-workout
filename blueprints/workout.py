@@ -41,6 +41,7 @@ def view_workout():
         ""
     if request.method == "PUT":
         # Updating the workout details
+        # Weight and date
         ""
     
     if request.method == "GET":

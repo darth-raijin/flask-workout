@@ -16,15 +16,12 @@ class Database:
         return mongo
 
     def get_user_by_id(self, user_id: str):
-        result = mongo.db.users.find({"_id": user_id})
-        result_dict = {}
-
-        # TODO Change to result.get
-
+        result = mongo.db.users.find_one({"_id": user_id})
+        print(result)
         result_dict = {
-                "id": result_dict.get("_id"),
-                "email": result_dict.get("email"),
-                "password": result_dict.get("password")
+                "id": result.get("_id"),
+                "email": result.get("email"),
+                "password": result.get("password")
                 }
         print(result_dict)
         if not result_dict:
@@ -36,8 +33,10 @@ class Database:
         try:
             result = mongo.db.users.insert_one(
                 {"_id": user_id, "email": email, "password": password})
+            print(f"Result for DB create_user: %s" % result)
             return True
         except:
+            print("Error inserting user")
             return False
 
     def create_workout(user_id: str, current_date: str):
