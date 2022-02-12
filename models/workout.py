@@ -1,4 +1,4 @@
 class Workout:
-    def _init_(self, exercises: list, weight = None):
+    def _init_(self, id: str, exercises: list = None, weight = None):
         
         return

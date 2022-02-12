@@ -7,8 +7,8 @@ from services.database import Database
 from models.user import User
 from datetime import datetime
 
-workout = Blueprint('workout', __name__, url_prefix='/workout',
-                 static_folder="static", template_folder="/workout/")
+workout = Blueprint('workout', __name__, url_prefix='/workouts',
+                 static_folder="static", template_folder="/workouts/")
 database = Database()
 
 @login_required
@@ -29,7 +29,7 @@ def workout_root():
 
     if request.method == "GET":
         if request.args.get("fail") != None:
-            flash("That workout is not")
+            flash("That workout is not available!")
         return render_template("workout_root.html")
 
 @login_required
